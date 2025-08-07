@@ -37,7 +37,7 @@
       </ul>
 
       <h3>Finding in Arrays</h3>
-      <p>Finding by property: {{ orwell?.name }}</p>
+      <p>Finding by property: {{ orwell }}</p>
 
       <h3>Nested Arrays/Objects</h3>
       <p>{{ austen?.name }}'s works:</p>
@@ -134,15 +134,14 @@
 <script setup>
 import { ref, computed } from "vue"
 
+const allDays = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]
+const weekends = ["Saturday", "Sunday"]
+const showMessage = ref(false)
+
 // Activity 1: Import JSON files (authors.json and bookstores.json)
 // TODO: CODE TO IMPORT JSON FILES HERE
 import authors from "../assets/json/authors.json"
 import bookstores from "../assets/json/bookstores.json"
-
-const allDays = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]
-const weekends = ["Saturday", "Sunday"]
-
-const showMessage = ref(false)
 
 // Activity 2: Get authors born after 1850
 const modernAuthors = computed(() => 
