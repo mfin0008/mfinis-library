@@ -1,6 +1,7 @@
 <script setup>
 import LoginForm from './components/LoginForm.vue';
 import CustomTable from './components/CustomTable.vue';
+import SiteHeader from './components/SiteHeader.vue';
 import { ref } from 'vue';
 
 const userData = ref([]);
@@ -10,7 +11,7 @@ const handleNewUser = (newUserData) => {
 </script>
 
 <template>
-  <header></header>
+  <header><SiteHeader /></header>
 
   <main>
     <LoginForm class="mb-5" @newUser="handleNewUser"/>
