@@ -88,6 +88,7 @@
               @input="validateReason(false)"
             ></textarea>
             <div v-if="errors.reason" class="text-danger">{{ errors.reason }}</div>
+            <div v-if="hasFriend()" class="text-friend">Great to have a friend</div>
           </div>
           <div class="text-center">
             <button type="submit" class="btn btn-primary me-2">Submit</button>
@@ -147,7 +148,7 @@ const errors = ref({
 
 const validateName = (blur) => {
   if (formData.value.username.length < 3 && blur) {
-    errors.value.username = 'username must be at least 3 characters'
+    errors.value.username = 'Username must be at least 3 characters'
   } else {
     errors.value.username = null
   }
@@ -167,15 +168,15 @@ const validatePassword = (blur) => {
   }
 
   if (password.length < minLength) {
-    errors.value.password = `password must be at least ${minLength} characters long.`
+    errors.value.password = `Password must be at least ${minLength} characters long.`
   } else if (!hasUppercase) {
-    errors.value.password = 'password must contain at least one uppercase letter.'
+    errors.value.password = 'Password must contain at least one uppercase letter.'
   } else if (!hasLowercase) {
-    errors.value.password = 'password must contain at least one lowercase letter.'
+    errors.value.password = 'Password must contain at least one lowercase letter.'
   } else if (!hasNumber) {
-    errors.value.password = 'password must contain at least one number.'
+    errors.value.password = 'Password must contain at least one number.'
   } else if (!hasSpecialChar) {
-    errors.value.password = 'password must contain at least one special character.'
+    errors.value.password = 'Password must contain at least one special character.'
   } else {
     errors.value.password = null
   }
@@ -209,9 +210,17 @@ const validateReason = (blur) => {
   if (!blur) {
     errors.value.reason = null
   } else if (!reason || reason.length < minLength) {
-    errors.value.reason = `reason must be at least ${minLength} characters long.`
+    errors.value.reason = `Reason must be at least ${minLength} characters long.`
   }
+}
+
+const hasFriend = () => {
+  return formData.value.reason.includes('friend');
 }
 </script>
 
-<style scoped></style>
+<style scoped>
+.text-friend {
+  color: green;
+}
+</style>
