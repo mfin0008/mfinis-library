@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import { RouterView } from 'vue-router';
-
+import { RouterLink } from 'vue-router';
+import { isAuthenticated, logout } from '@/auth/auth';
 </script>
 
 <template>
@@ -10,23 +10,31 @@ import { RouterView } from 'vue-router';
     <header class="d-flex justify-content-center py-3">
       <ul class="nav nav-pills">
         <li class="nav-item">
-          <RouterView to="/" class="nav-link active" aria-current="page">
+          <RouterLink to="/" class="nav-link" active-class="active" exact-active-class="active" aria-current="page">
             Home (Week 5)
-          </RouterView>
+          </RouterLink>
         </li>
         <li class="nav-item">
-          <RouterView to="/about" class="nav-link" aria-current="page">
+          <RouterLink to="/about" class="nav-link" active-class="active" aria-current="page">
             About
-          </RouterView>
+          </RouterLink>
+        </li>
+        <li v-if="!isAuthenticated" class="nav-item">
+          <RouterLink to="/login" class="nav-link" active-class="active" aria-current="page">
+            Login
+          </RouterLink>
+        </li>
+        <li v-else>
+          <button class="nav-link" @click="logout()">Logout</button>
         </li>
       </ul>
     </header>
   </div>
+  <div class="b-example-divider"></div>
 </template>
 
 <style scoped>
 .b-example-divider {
-  height: 3rem;
   background-color: rgba(0, 0, 0, 0.1);
   border: solid rgba(0, 0, 0, 0.15);
   border-width: 1px 0;
