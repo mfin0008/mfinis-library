@@ -1,3 +1,8 @@
+<script setup lang="ts">
+import { RouterView } from 'vue-router';
+
+</script>
+
 <template>
   <!-- Using Bootstrap's Header template (starter code) -->
   <!-- https://getbootstrap.com/docs/5.0/examples/headers/ -->
@@ -5,10 +10,15 @@
     <header class="d-flex justify-content-center py-3">
       <ul class="nav nav-pills">
         <li class="nav-item">
-          <a href="#" class="nav-link active" aria-current="page">Home (Week 4)</a>
+          <RouterView to="/" class="nav-link active" aria-current="page">
+            Home (Week 5)
+          </RouterView>
         </li>
-        <li class="nav-item"><a href="#" class="nav-link">About</a></li>
-        <li class="nav-item"><a href="#" class="nav-link">Contact us</a></li>
+        <li class="nav-item">
+          <RouterView to="/about" class="nav-link" aria-current="page">
+            About
+          </RouterView>
+        </li>
       </ul>
     </header>
   </div>

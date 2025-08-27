@@ -90,6 +90,10 @@
             <div v-if="errors.reason" class="text-danger">{{ errors.reason }}</div>
             <div v-if="hasFriend()" class="text-friend">Great to have a friend</div>
           </div>
+          <div class="mb-3">
+            <label for="suburb" class="form-label">Suburb</label>
+            <input type="text" class="form-control" id="suburb" v-bind:value="formData.suburb" />
+          </div>
           <div class="text-center">
             <button type="submit" class="btn btn-primary me-2">Submit</button>
             <button type="button" class="btn btn-secondary" @click="clearForm">Clear</button>
@@ -110,6 +114,7 @@ const formData = ref({
   'Australian Resident': false,
   gender: '',
   reason: '',
+  suburb: 'Clayton'
 })
 
 const emit = defineEmits(['newUser'])
