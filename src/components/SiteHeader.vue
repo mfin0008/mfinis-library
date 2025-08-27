@@ -1,6 +1,11 @@
 <script setup lang="ts">
+<<<<<<< HEAD
 import { RouterView } from 'vue-router';
 
+=======
+import { RouterLink } from 'vue-router';
+import { isAuthenticated, logout } from '@/auth/auth';
+>>>>>>> 6ed28aa (Lab W5 6.1 authentication)
 </script>
 
 <template>
@@ -18,6 +23,14 @@ import { RouterView } from 'vue-router';
           <RouterView to="/about" class="nav-link" aria-current="page">
             About
           </RouterView>
+        </li>
+        <li v-if="!isAuthenticated" class="nav-item">
+          <RouterLink to="/login" class="nav-link" active-class="active" aria-current="page">
+            Login
+          </RouterLink>
+        </li>
+        <li v-else>
+          <button class="nav-link" @click="logout()">Logout</button>
         </li>
       </ul>
     </header>
