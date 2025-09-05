@@ -24,6 +24,16 @@ import { isAuthenticated, logout } from '@/auth/auth';
             Login
           </RouterLink>
         </li>
+        <li v-if="!isAuthenticated" class="nav-item">
+          <RouterLink to="/FireLogin" class="nav-link" active-class="active" aria-current="page">
+            Firebase Login
+          </RouterLink>
+        </li>
+        <li v-if="!isAuthenticated" class="nav-item">
+          <RouterLink to="/FireRegister" class="nav-link" active-class="active" aria-current="page">
+            Firebase Register
+          </RouterLink>
+        </li>
         <li v-else>
           <button class="nav-link" @click="logout()">Logout</button>
         </li>
