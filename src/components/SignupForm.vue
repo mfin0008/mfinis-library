@@ -129,11 +129,13 @@ const clearForm = () => {
 const submitForm = () => {
   validateName(true)
   validatePassword(true)
+  validateConfirmPassword(true)
   validateGender(true)
   validateReason(true)
   if (
     !errors.value.username &&
     !errors.value.password &&
+    !errors.value.confirmPassword &&
     !errors.value.gender &&
     !errors.value.reason
   ) {
