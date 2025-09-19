@@ -9,9 +9,9 @@ const router = useRouter();
 const auth = getAuth();
 
 const register = () => {
-  console.log(email.value, password.value)
   createUserWithEmailAndPassword(auth, email.value, password.value)
     .then(() => {
+      console.log('Firebase Register Successful!');
       router.push("/FireLogin");
     }).catch((error) => {
       console.log(error.code);
