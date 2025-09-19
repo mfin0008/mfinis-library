@@ -34,6 +34,9 @@ import { isAuthenticated, logout } from '@/auth/auth';
             Firebase Register
           </RouterLink>
         </li>
+        <li v-if="!isAuthenticated" class="nav-item">
+          <RouterLink to="/addbook" class="nav-link" active-class="active">Add Book</RouterLink>
+        </li>
         <li v-else>
           <button class="nav-link" @click="logout()">Logout</button>
         </li>
