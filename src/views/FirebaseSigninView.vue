@@ -2,6 +2,7 @@
 import { ref } from 'vue';
 import { getAuth, signInWithEmailAndPassword } from 'firebase/auth';
 import { useRouter } from 'vue-router';
+import { login } from '@/auth/auth';
 
 const email = ref('');
 const password = ref('');
@@ -17,6 +18,7 @@ const signIn = () => {
     }).catch((error) => {
       console.log(error.code);
     })
+  login();
 }
 </script>
 
