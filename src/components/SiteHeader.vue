@@ -37,6 +37,9 @@ import { isAuthenticated, logout } from '@/auth/auth';
         <li v-if="!isAuthenticated" class="nav-item">
           <RouterLink to="/addbook" class="nav-link" active-class="active">Add Book</RouterLink>
         </li>
+        <li v-if="!isAuthenticated" class="nav-item">
+          <RouterLink to="/GetBookCount" class="nav-link" active-class="active">Get Book Count</RouterLink>
+        </li>
         <li v-else>
           <button class="nav-link" @click="logout()">Logout</button>
         </li>
