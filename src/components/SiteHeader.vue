@@ -19,6 +19,11 @@ import { isAuthenticated, logout } from '@/auth/auth';
             About
           </RouterLink>
         </li>
+        <li class="nav-item">
+          <RouterLink to="/GetWeather" class="nav-link" active-class="active" aria-current="page">
+            Get Weather
+          </RouterLink>
+        </li>
         <li v-if="!isAuthenticated" class="nav-item">
           <RouterLink to="/login" class="nav-link" active-class="active" aria-current="page">
             Login
