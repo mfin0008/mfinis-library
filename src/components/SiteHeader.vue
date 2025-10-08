@@ -24,6 +24,11 @@ import { isAuthenticated, logout } from '@/auth/auth';
             Get Weather
           </RouterLink>
         </li>
+        <li class="nav-item">
+          <RouterLink to="/CountBookAPI" class="nav-link" active-class="active" aria-current="page">
+            Count Book API
+          </RouterLink>
+        </li>
         <li v-if="!isAuthenticated" class="nav-item">
           <RouterLink to="/login" class="nav-link" active-class="active" aria-current="page">
             Login
