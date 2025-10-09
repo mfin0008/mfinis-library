@@ -1,9 +1,8 @@
 <script>
 import { ref } from 'vue';
-import db from '@/firebase/init';
-import { collection, addDoc } from 'firebase/firestore';
 
 import BookList from '../components/BookList.vue';
+import axios from 'axios';
 
 export default {
   setup() {
@@ -18,10 +17,11 @@ export default {
           return;
         }
 
-        await addDoc(collection(db, 'books'), {
-          isbn: isbnNumber,
-          name: name.value
-        });
+        const REQUEST_URL = 'https://addbookcapitalised-7gjk5vxqca-uc.a.run.app';
+        await axios.post(
+          REQUEST_URL,
+          { isbn: isbn.value, name: name.value }
+        );
 
         isbn.value = '';
         name.value = '';

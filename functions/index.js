@@ -53,6 +53,20 @@ export const countBooks = onRequest((req, res) => {
   });
 });
 
+export const addBookCapitalised = onRequest((req, res) => {
+  corsWithOrigin(req, res, async () => {
+    try {
+      const { isbn, name } = req.body;
+      admin.firestore().collection('books').add({ isbn: isbn.toUppercase(), name: name.toUppercase() });
+      res.status(200).send();
+    } catch (error) {
+      const msg = `Error adding book: ${error.message}`;
+      console.error(msg);
+      res.status(500).send(msg);
+    }
+  });
+});
+
 export const getAllBooks = onRequest((req, res) => {
   corsWithOrigin(req, res, async () => {
     try {
