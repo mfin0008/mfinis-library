@@ -9,6 +9,7 @@ import AddBookView from '@/views/AddBookView.vue';
 import GetBookCountView from '../views/GetBookCountView.vue';
 import WeatherView from '@/views/WeatherView.vue';
 import CountBookAPI from '@/views/CountBookAPI.vue';
+import GetAllBooksAPI from '@/views/GetAllBooksAPI.vue';
 
 const inAppLoginRoute = {
   path: '/login',
@@ -16,11 +17,19 @@ const inAppLoginRoute = {
   component: LoginView
 };
 
-export const countBookApiRoute = {
+const countBookApiRoute = {
   path: '/CountBookAPI',
   name: 'CountBookAPI',
   component: CountBookAPI,
 };
+
+const getAllBooksApiRoute = {
+  path: '/GetAllBooksAPI',
+  name: 'GetAllBooksAPI',
+  component: GetAllBooksAPI,
+}
+
+export const API_ROUTE_PATHS = [countBookApiRoute.path, getAllBooksApiRoute.path];
 
 const routes = [
   {
@@ -66,6 +75,7 @@ const routes = [
     component: WeatherView,
   },
   countBookApiRoute,
+  getAllBooksApiRoute,
 ]
 
 const router = createRouter({

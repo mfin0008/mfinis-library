@@ -52,3 +52,16 @@ export const countBooks = onRequest((req, res) => {
     }
   });
 });
+
+export const getAllBooks = onRequest((req, res) => {
+  corsWithOrigin(req, res, async () => {
+    try {
+      const allBooks = (await admin.firestore().collection('books').get()).docs;
+      res.status(200).send(allBooks.map(doc => doc.data()));
+    } catch (error) {
+      const msg = `Error fetching all books: ${error.message}`;
+      console.error(msg);
+      res.status(500).send(msg);
+    }
+  })
+});

@@ -2,10 +2,10 @@
 import SiteHeader from './components/SiteHeader.vue';
 import { RouterView } from 'vue-router';
 import router from './router';
-import { countBookApiRoute } from '../src/router/index';
+import { API_ROUTE_PATHS } from '../src/router/index';
 import { computed } from 'vue';
 
-const showHeader = computed(() => router.currentRoute.value.path !== countBookApiRoute.path);
+const showHeader = computed(() => !API_ROUTE_PATHS.includes(router.currentRoute.value.path));
 </script>
 
 <template>
